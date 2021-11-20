@@ -1,6 +1,8 @@
-# rpo
+# Projekt
+GameZ
 
-RPO projekt - dropshipping
+## Člani
+- Žan Bedrač: bedrac.zan@gmail.com
 
 Luka
 
