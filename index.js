@@ -1,36 +1,34 @@
+// database connection
+require('dotenv').config({ path: './config/.env' });
+require('./database').connect(
+  process.env.USER,
+  process.env.PASSWORD,
+  process.env.DATABASE_NAME
+);
+
 const express = require('express');
-const mongoose = require('mongoose');
-const { exit } = require('process');
+const morgan = require('morgan');
+const cors = require('cors');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
-connect = async (user, password, database) => {
-  const url = `mongodb+srv://${user}:${password}@cluster0.buzm7.mongodb.net/${database}?retryWrites=true&w=majority`;
-
-  try {
-    await mongoose.connect(url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('Successfully connected to the database.');
-  } catch (e) {
-    console.log('Connection error:', e.message);
-    exit();
-  }
-};
+// functions
+const log = require('./helpers/log');
 
 // config
-const user = 'jean_babtista';
-const pw = '';
-const db = 'testDb';
-connect(user, pw, db);
-
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(morgan('dev'));
 
 // routes
-app.use('/api/dog', require('./routes/dog'));
+app.use('/api/user', require('./routes/user'));
 
 // listen
-app.listen(PORT, () => console.log(`http://localhost:${PORT}/api/dog`));
+const { PORT } = process.env;
+app.listen(PORT, () =>
+  log('Connect here', `http://localhost:${PORT}/api/user`)
+);
