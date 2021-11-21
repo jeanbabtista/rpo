@@ -1,29 +1,32 @@
 // database connection
-require('dotenv').config({ path: './config/.env' });
-require('./database').connect();
+import dotenv from 'dotenv';
+import db from './database/index.js';
+import express, { json, urlencoded } from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+// routes
+import authRoute from './routes/auth/index.js';
+import userRoute from './routes/user.js';
 
 // functions
-const log = require('./helpers/log');
-const msg = require('./helpers/jsonMsg');
+import log from './helpers/log.js';
+import msg from './helpers/jsonMsg.js';
 
 // config
 const app = express();
+dotenv.config({ path: './config/.env' });
+db.connect();
 
 // middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(json());
+app.use(urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan('dev'));
 
 // routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/user', require('./routes/user'));
+app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute);
 
 app.use((req, res) =>
   res.status(404).json(msg(true, 'Error: page not found.'))
@@ -32,5 +35,5 @@ app.use((req, res) =>
 // listen
 const { PORT } = process.env;
 app.listen(PORT, () => {
-  log('Connect here', `htpt://localhost:${PORT}/api/user`);
+  log('Connect here', `http://localhost:${PORT}/api/user`);
 });

@@ -5,4 +5,4 @@ const log = (a, b, numTabs = 1) => {
   console.log(`${a}:${tabs}${b}`);
 };
 
-module.exports = log;
+export default log;

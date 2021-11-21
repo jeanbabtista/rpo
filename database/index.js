@@ -1,9 +1,13 @@
-require('dotenv').config({ path: './config/.env' });
-const { USER: user, PASSWORD: password, DATABASE_NAME: database } = process.env;
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import { exit } from 'process';
 
-const mongoose = require('mongoose');
-const { exit } = require('process');
-const log = require('../helpers/log');
+// functions
+import log from '../helpers/log.js';
+
+// config
+dotenv.config({ path: './config/.env' });
+const { USER: user, PASSWORD: password, DATABASE_NAME: database } = process.env;
 
 const connect = async () => {
   const url = `mongodb+srv://${user}:${password}@cluster0.buzm7.mongodb.net/${database}?retryWrites=true&w=majority`;
@@ -21,6 +25,6 @@ const connect = async () => {
   }
 };
 
-module.exports = {
+export default {
   connect,
 };

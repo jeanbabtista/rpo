@@ -1,5 +1,6 @@
-const User = require('../models/user');
-const msg = require('../helpers/jsonMsg');
+import User from '../models/user.js';
+import mongoose from 'mongoose';
+import msg from '../helpers/jsonMsg.js';
 
 const findAll = async (req, res, next) => {
   try {
@@ -38,7 +39,7 @@ const update = async (req, res, next) => {
   const updated = { ...req.body };
 
   try {
-    await User.findByIdAndUpdate(id, { $set: updated });
+    await findByIdAndUpdate(id, { $set: updated });
     const user = await User.findById(id);
     res.json(msg(false, `Successfully updated the user with id ${id}`, user));
   } catch (e) {
@@ -58,7 +59,7 @@ const remove = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export default {
   findAll,
   findOne,
   insert,

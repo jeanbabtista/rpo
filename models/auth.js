@@ -1,7 +1,7 @@
-const { Schema } = require('mongoose');
-const crypto = require('crypto');
+import mongoose from 'mongoose';
+import crypto from 'crypto';
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -33,7 +33,7 @@ const userSchema = new Schema(
 );
 
 userSchema.methods = {
-  salt: function () {
+  generateSalt: function () {
     return Math.round(new Date().valueOf() * Math.random()) + '';
   },
   encrypt: function (password) {
@@ -57,10 +57,11 @@ userSchema
   .virtual('password')
   .set(function (password) {
     this.password = password;
-    this.salt = this.salt();
+    this.salt = this.generateSalt();
     this.hashed = this.encrypt(password);
   })
   .get(() => this.password);
 
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+
+export default User;
