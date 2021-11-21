@@ -1,10 +1,6 @@
 // database connection
 require('dotenv').config({ path: './config/.env' });
-require('./database').connect(
-  process.env.USER,
-  process.env.PASSWORD,
-  process.env.DATABASE_NAME
-);
+require('./database').connect();
 
 const express = require('express');
 const morgan = require('morgan');
@@ -29,12 +25,12 @@ app.use(morgan('dev'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));
 
-app.use((req, res, next) =>
+app.use((req, res) =>
   res.status(404).json(msg(true, 'Error: page not found.'))
 );
 
 // listen
 const { PORT } = process.env;
 app.listen(PORT, () => {
-  log('Connect here', `http://localhost:${PORT}/api/user`);
+  log('Connect here', `htpt://localhost:${PORT}/api/user`);
 });

@@ -1,10 +1,11 @@
+require('dotenv').config({ path: './config/.env' });
+const { USER: user, PASSWORD: password, DATABASE_NAME: database } = process.env;
+
 const mongoose = require('mongoose');
 const { exit } = require('process');
-
-// functions
 const log = require('../helpers/log');
 
-const connect = async (user, password, database) => {
+const connect = async () => {
   const url = `mongodb+srv://${user}:${password}@cluster0.buzm7.mongodb.net/${database}?retryWrites=true&w=majority`;
 
   try {
