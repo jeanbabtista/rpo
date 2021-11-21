@@ -1,13 +1,18 @@
 import { Router } from 'express';
+import { body, validationResult } from 'express-validator';
 import User from '../../models/user.js';
 const router = Router();
-
-// passport.serializeUser((user, done) => done(null, user));
 
 // controllers
 import auth from '../../controllers/auth.js';
 
 // routes
-router.post('/signup', auth.signup);
+router.post(
+  '/signup',
+  body('name').notEmpty(),
+  body('email').isEmail(),
+  body('password').notEmpty().isLength({ min: 8 }),
+  auth.signup
+);
 
 export default router;
