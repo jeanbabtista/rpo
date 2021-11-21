@@ -35,6 +35,6 @@ app.use((req, res, next) =>
 
 // listen
 const { PORT } = process.env;
-app.listen(PORT, () =>
-  log('Connect here', `http://localhost:${PORT}/api/user`)
-);
+app.listen(PORT, () => {
+  log('Connect here', `http://localhost:${PORT}/api/user`);
+});
