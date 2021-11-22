@@ -18,8 +18,8 @@ connect = async (user, password, database) => {
 };
 
 // config
-const user = 'jean_babtista';
-const pw = '';
+const user = 'luka_lovenjak';
+const pw = 'luka123';
 const db = 'testDb';
 connect(user, pw, db);
 
