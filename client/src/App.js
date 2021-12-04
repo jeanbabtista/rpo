@@ -1,11 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-const App = () => {
+// mui
+import ThemeContext from './theme'
+import { CssBaseline } from '@mui/material'
+
+// components
+import Auth from './components/Auth'
+
+export default function App() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
-};
-
-export default App;
+    <ThemeContext>
+      <Auth />
+      <CssBaseline />
+    </ThemeContext>
+  )
+}
