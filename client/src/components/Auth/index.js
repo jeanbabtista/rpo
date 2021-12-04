@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Redirect } from '@reach/router'
 
 // mui
 import { Button } from '@mui/material'
@@ -7,7 +8,8 @@ import { Button } from '@mui/material'
 import Signup from './Signup'
 
 // config
-const userObj = {
+import { getLocalStorage, isAuth } from '../../helpers/auth'
+const form = {
   fname: '',
   lname: '',
   email: '',
@@ -15,13 +17,18 @@ const userObj = {
 }
 
 export default function Auth() {
-  const [user, setUser] = useState(userObj)
+  const [user, setUser] = useState(form)
   const [openModal, setOpenModal] = useState(false)
 
-  return (
+  return isAuth() ? (
+    <>
+      <h1>Welcome, {getLocalStorage()}!</h1>
+    </>
+  ) : (
     <>
       <Button onClick={() => setOpenModal(true)}>Open Modal</Button>
       <Signup
+        initialUser={form}
         user={user}
         setUser={setUser}
         open={openModal}
