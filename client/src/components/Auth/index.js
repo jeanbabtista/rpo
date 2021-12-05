@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Redirect } from '@reach/router'
 
 // mui
 import { Button } from '@mui/material'
@@ -7,8 +6,10 @@ import { Button } from '@mui/material'
 // components
 import Signup from './Signup'
 
-// config
+// functions
 import { getLocalStorage, isAuth } from '../../helpers/auth'
+
+// config
 const form = {
   fname: '',
   lname: '',
