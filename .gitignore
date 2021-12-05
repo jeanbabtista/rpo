@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 # Visual Studio
 .vs
 .vscode
+=======
+config/
+>>>>>>> dff9d92d365e8eee931847fccc3bf6d91d7640a3
 
 # Logs
 logs

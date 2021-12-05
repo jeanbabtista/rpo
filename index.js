@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const mongoose = require('mongoose');
 const { exit } = require('process');
@@ -28,9 +29,39 @@ const PORT = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
+=======
+// database connection
+import { config } from 'dotenv'
+import db from './config/db.js'
+import express, { json, urlencoded } from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
+>>>>>>> dff9d92d365e8eee931847fccc3bf6d91d7640a3
 
 // routes
-app.use('/api/dog', require('./routes/dog'));
+import authRoute from './routes/auth.js'
+import userRoute from './routes/user.js'
+
+// functions
+import log from './helpers/log.js'
+import msg from './helpers/jsonMsg.js'
+
+// config
+const app = express()
+config({ path: './config/.env' })
+db.connect()
+
+// middleware
+app.use(json())
+app.use(urlencoded({ extended: false }))
+app.use(cors())
+app.use(morgan('dev'))
+
+// routes
+app.use('/api/auth', authRoute)
+app.use('/api/user', userRoute)
+app.use((req, res) => res.status(404).json(msg(true, 'Error: page not found.')))
 
 // listen
-app.listen(PORT, () => console.log(`http://localhost:${PORT}/api/dog`));
+const { PORT } = process.env
+app.listen(PORT, () => log('Connect here', `http://localhost:${PORT}/api/user`))
