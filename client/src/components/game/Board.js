@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import Square from './Square';
 
+// styles
+import {BoardRow,StyledBoard, StatusText, RestartBtn, CenterDiv} from './styles'
+
 let x_score=0;
 let y_score=0;  
 
@@ -21,7 +24,7 @@ function Board(){
         status = "Player turn: "+(x?'X':'O');                      
     }
 
-    if(end_of_game){if(winner==='X'){x_score+=.5;}else{y_score+=.5;}}
+    if(end_of_game){if(winner==='X'){x_score+=1;}else{y_score+=1;}}
     
     const renderSquare =(i) =>{
         return(
@@ -79,34 +82,36 @@ function Board(){
 
     return( 
     
-    <div className="board">
-        <div className='status_text'>SCORE</div>
-        <div className='status_text'> {score} </div>        
+    <StyledBoard>
+        <StatusText>SCORE</StatusText>
+        <StatusText> {score} </StatusText>        
 
-        <div className='board-row'>
+        <BoardRow >
         {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
-        </div>
+        </BoardRow>
 
-        <div className='board-row'>
+        <BoardRow >
         {renderSquare(3)}
         {renderSquare(4)}
         {renderSquare(5)}    
-        </div>
+        </BoardRow>
 
-        <div className='board-row'>
+        <BoardRow>
         {renderSquare(6)}
         {renderSquare(7)}
-        {renderSquare(8)} 
-        </div>         
-        <div className='status_text'>
+        {renderSquare(8)}    
+        </BoardRow>
+
+        <StatusText>
          {status}
-        </div>
-        <div>
-               <button className='restart_btn' onClick = {() => reset_all()}> NEXT GAME </button>
-        </div>
-    </div>
+        </StatusText>
+        <CenterDiv>
+            <RestartBtn onClick = {() => reset_all()}> NEXT GAME </RestartBtn>
+        </CenterDiv>
+               
+    </StyledBoard>
         
     )
    
