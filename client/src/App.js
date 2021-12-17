@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // components
 import Navbar from './components/Navbar'
-import Game from './components/game'
+import Game from './components/Game'
 
 // pages
 import Home from './pages/Home'
@@ -17,7 +17,16 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" exact element={<Game />} />
+        <Route
+          path="/"
+          exact
+          element={
+            <>
+              <Game />
+              <Home />
+            </>
+          }
+        />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />

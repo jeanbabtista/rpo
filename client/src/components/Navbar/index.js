@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements'
+import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './styles'
 import logo from '../../assets/logo.png'
 
 const Navbar = () => {
