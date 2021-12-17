@@ -4,15 +4,18 @@ import React from 'react'
 import TicTacToeIcon from '../../assets/tictactoe.png'
 import SnakeIcon from '../../assets/snake.jpg'
 import WarriorIcon from '../../assets/warrior.webp'
-import { Box } from '@mui/material'
+import { Box, useMediaQuery, useTheme } from '@mui/material'
 
 // components
 import Card from './Card'
 
 const GameCards = () => {
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
+
   return (
     <Box mt={12}>
-      <Box display="flex" justifyContent="space-between">
+      <Box display={matches ? 'block' : 'flex'} justifyContent="space-between" {...(matches && { width: '100%' })}>
         <Card
           icon={TicTacToeIcon}
           label="Tic Tac Toe"

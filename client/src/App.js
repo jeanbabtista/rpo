@@ -22,7 +22,7 @@ function App() {
         <Navbar />
         <Container maxWidth="lg">
           <Routes>
-            <Route path="/" exact element={<GameCards />} />
+            <Route path="/rpo" exact element={<GameCards />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<Signup />} />

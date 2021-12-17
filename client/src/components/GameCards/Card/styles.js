@@ -7,6 +7,7 @@ export const CardWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5rem;
 `
 
 export const CardContainer = styled(motion.div)`
