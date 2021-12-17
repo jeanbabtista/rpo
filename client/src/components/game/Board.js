@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import Square from './Square'
 
+// styles
+import { BoardRow, StyledBoard, StatusText, RestartBtn, CenterDiv } from './styles'
+
+//x in y
 let x_score = 0
 let y_score = 0
 
-function Board() {
+const Board = () => {
   const [square, setSquare] = useState(Array(9).fill(null))
   const [x, setX] = useState(true)
 
@@ -21,9 +25,9 @@ function Board() {
 
   if (end_of_game) {
     if (winner === 'X') {
-      x_score += 0.5
+      x_score += 1
     } else {
-      y_score += 0.5
+      y_score += 1
     }
   }
 
@@ -82,35 +86,33 @@ function Board() {
   }
 
   return (
-    <div className="board">
-      <div className="status_text">SCORE</div>
-      <div className="status_text"> {score} </div>
+    <StyledBoard>
+      <StatusText>SCORE</StatusText>
+      <StatusText> {score} </StatusText>
 
-      <div className="board-row">
+      <BoardRow>
         {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
-      </div>
+      </BoardRow>
 
-      <div className="board-row">
+      <BoardRow>
         {renderSquare(3)}
         {renderSquare(4)}
         {renderSquare(5)}
-      </div>
+      </BoardRow>
 
-      <div className="board-row">
+      <BoardRow>
         {renderSquare(6)}
         {renderSquare(7)}
         {renderSquare(8)}
-      </div>
-      <div className="status_text">{status}</div>
-      <div>
-        <button className="restart_btn" onClick={() => reset_all()}>
-          {' '}
-          NEXT GAME{' '}
-        </button>
-      </div>
-    </div>
+      </BoardRow>
+
+      <StatusText>{status}</StatusText>
+      <CenterDiv>
+        <RestartBtn onClick={() => reset_all()}> NEXT GAME </RestartBtn>
+      </CenterDiv>
+    </StyledBoard>
   )
 }
 
