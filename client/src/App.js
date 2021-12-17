@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // components
 import Navbar from './components/Navbar'
+import Game from './components/game'
+
+// pages
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -14,7 +17,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Game />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
