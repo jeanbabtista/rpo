@@ -1,10 +1,9 @@
 import React from 'react'
+import { Btn } from './styles'
 
-const Square = ({ value, onClick }) => (
+const Square = (props) => (
   <div>
-    <button className="btn" onClick={() => onClick()}>
-      {value}
-    </button>
+    <Btn onClick={() => props.onClick()}>{props.value}</Btn>
   </div>
 )
 
