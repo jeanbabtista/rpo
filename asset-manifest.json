@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/rpo/static/js/main.3a00c6fe.js",
+    "static/media/logo.png": "/rpo/static/media/logo.b664d347a695e9616422.png",
+    "index.html": "/rpo/index.html",
+    "main.3a00c6fe.js.map": "/rpo/static/js/main.3a00c6fe.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.3a00c6fe.js"
+  ]
+}
