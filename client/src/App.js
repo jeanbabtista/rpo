@@ -1,12 +1,26 @@
 import React from 'react'
-import Game from './components/game'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-const App = () => {
+// components
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Signup from './pages/Signup'
+import Signin from './pages/Signin'
+
+function App() {
   return (
-    <div>
-      <h1>HELLO world!</h1>
-      <Game />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
+      </Routes>
+    </Router>
   )
 }
 
