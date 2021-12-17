@@ -4,6 +4,7 @@ import Square from './Square';
 // styles
 import {BoardRow,StyledBoard, StatusText, RestartBtn, CenterDiv} from './styles'
 
+//x in y
 let x_score=0;
 let y_score=0;  
 
