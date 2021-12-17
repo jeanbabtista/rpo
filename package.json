@@ -16,10 +16,6 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-<<<<<<< HEAD
-    "lodash": "^4.17.21",
-    "mongoose": "^6.0.12"
-=======
     "express-jwt": "^6.1.0",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
@@ -32,6 +28,5 @@
   "devDependencies": {
     "concurrently": "^6.4.0",
     "nodemon": "^2.0.15"
->>>>>>> dff9d92d365e8eee931847fccc3bf6d91d7640a3
   }
 }
