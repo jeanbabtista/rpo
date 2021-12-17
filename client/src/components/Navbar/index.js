@@ -1,17 +1,15 @@
 import React from 'react'
 
-// mui
-import AppleIcon from '@mui/icons-material/Apple'
-
 // components
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements'
+import logo from '../../assets/logo.png'
 
 const Navbar = () => {
   return (
     <>
       <Nav>
         <NavLink to="/">
-          <AppleIcon />
+          <img src={logo} alt="logo" />
         </NavLink>
 
         <Bars />
