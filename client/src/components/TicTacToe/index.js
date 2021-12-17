@@ -3,7 +3,7 @@ import React from 'react'
 // components
 import Board from './Board'
 
-const Game = () => {
+const TicTacToe = () => {
   return (
     <div>
       <Board />
@@ -11,4 +11,4 @@ const Game = () => {
   )
 }
 
-export default Game
+export default TicTacToe

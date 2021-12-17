@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './styles'
+import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo } from './styles'
 import logo from '../../assets/logo.png'
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavLink to="/">
-          <img src={logo} alt="logo" />
+          <NavLogo src={logo} alt="Logo" />
         </NavLink>
 
         <Bars />

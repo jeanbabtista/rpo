@@ -84,3 +84,8 @@ export const NavBtnLink = styled(Link)`
     color: #010606;
   }
 `
+export const NavLogo = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+`
