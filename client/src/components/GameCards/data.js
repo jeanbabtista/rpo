@@ -2,9 +2,6 @@ import TicTacToeIcon from '../../assets/tictactoe.png'
 import SnakeIcon from '../../assets/snake.jpg'
 import WarriorIcon from '../../assets/warrior.webp'
 
-// config
-const GAMES_URL = '/games'
-
 const data = [
   {
     label: 'TicTacToe',
