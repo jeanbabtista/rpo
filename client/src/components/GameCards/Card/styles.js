@@ -16,8 +16,13 @@ export const CardContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   border-radius: 25px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(255, 255, 255, 0.06),
+    0 22.3px 17.9px rgba(255, 255, 255, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
   background: ${(props) => `linear-gradient(${props.graddeg}deg, ${props.gradfrom} 0%, ${props.gradto} 74%);`}
   color: #fff;
   position: relative;
@@ -79,6 +84,7 @@ export const Icon = styled(motion.div)`
   margin-right: 7em;
   margin-top: 4em;
   img {
+    cursor: pointer;
     height: 220px;
     width: 220px;
     object-fit: cover;

@@ -3,8 +3,11 @@ import React from 'react'
 // styles
 import { DetailsContainer, PlayButton } from './styles'
 import { Box, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
-const Details = ({ label }) => {
+const Details = ({ label, link }) => {
+  const navigate = useNavigate()
+
   return (
     <DetailsContainer>
       <Typography variant="caption">GameZ</Typography>
@@ -15,7 +18,7 @@ const Details = ({ label }) => {
       <Box sx={{ mt: '1.2em' }} />
 
       <Box display="flex" alignSelf="flex-end">
-        <PlayButton>Play</PlayButton>
+        <PlayButton onClick={() => navigate(link)}>Play</PlayButton>
       </Box>
     </DetailsContainer>
   )

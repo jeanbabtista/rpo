@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // mui
 import { CssBaseline, Container } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 // components
 import Navbar from './components/Navbar'
@@ -15,8 +16,10 @@ import Signup from './pages/Signup'
 import Signin from './pages/Signin'
 
 function App() {
+  const theme = createTheme({ palette: { mode: 'dark' } })
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <Navbar />
@@ -30,7 +33,7 @@ function App() {
           </Routes>
         </Container>
       </Router>
-    </>
+    </ThemeProvider>
   )
 }
 

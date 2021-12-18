@@ -1,13 +1,13 @@
 import React from 'react'
 
 // styles
-import TicTacToeIcon from '../../assets/tictactoe.png'
-import SnakeIcon from '../../assets/snake.jpg'
-import WarriorIcon from '../../assets/warrior.webp'
 import { Box, useMediaQuery, useTheme } from '@mui/material'
 
 // components
 import Card from './Card'
+
+// cards data
+import data from './data'
 
 const GameCards = () => {
   const theme = useTheme()
@@ -16,38 +16,9 @@ const GameCards = () => {
   return (
     <Box mt={12}>
       <Box display={matches ? 'block' : 'flex'} justifyContent="space-between" {...(matches && { width: '100%' })}>
-        <Card
-          icon={TicTacToeIcon}
-          label="Tic Tac Toe"
-          bgGradDeg="80"
-          bgGradFrom="#000"
-          bgGradTo="#2c3e50"
-          circleGradDeg="190"
-          circleGradFrom="#6617cb"
-          circleGradTo="#cb218e"
-        />
-
-        <Card
-          icon={SnakeIcon}
-          label="Snake"
-          bgGradDeg="80"
-          bgGradFrom="#000"
-          bgGradTo="#55efc4"
-          circleGradDeg="200"
-          circleGradFrom="#000"
-          circleGradTo="#923cb5"
-        />
-
-        <Card
-          icon={WarriorIcon}
-          label="Warrior"
-          bgGradDeg="80"
-          bgGradFrom="#000"
-          bgGradTo="#923cb5"
-          circleGradDeg="120"
-          circleGradFrom="#2c3e50"
-          circleGradTo="#000"
-        />
+        {data.map((card, i) => (
+          <Card key={i} {...card} />
+        ))}
       </Box>
     </Box>
   )
