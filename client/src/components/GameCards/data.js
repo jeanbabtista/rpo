@@ -9,7 +9,7 @@ const data = [
   {
     label: 'TicTacToe',
     icon: TicTacToeIcon,
-    link: `${GAMES_URL}/tictactoe`,
+    link: 'tictactoe',
     bgGradDeg: '80',
     bgGradFrom: '#000',
     bgGradTo: '#2c3e50',
@@ -20,7 +20,7 @@ const data = [
   {
     icon: SnakeIcon,
     label: 'Snake',
-    link: `${GAMES_URL}/snake`,
+    link: 'snake',
     bgGradDeg: '80',
     bgGradFrom: '#000',
     bgGradTo: '#55efc4',
@@ -31,7 +31,7 @@ const data = [
   {
     icon: WarriorIcon,
     label: 'Warrior',
-    link: `${GAMES_URL}/warrior`,
+    link: 'warrior',
     bgGradDeg: '80',
     bgGradFrom: '#000',
     bgGradTo: '#923cb5',

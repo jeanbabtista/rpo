@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Context } from '../../App'
 
 // styles
 import logo from '../../assets/logo.png'
@@ -10,6 +11,7 @@ import SignInIcon from '@mui/icons-material/Login'
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavLogo } from './styles'
 
 const Navbar = ({ bgColor }) => {
+  const { routes } = useContext(Context)
   const navigate = useNavigate()
 
   return (
@@ -21,19 +23,19 @@ const Navbar = ({ bgColor }) => {
 
         <Bars />
         <NavMenu>
-          <Button sx={{ color: '#fff' }} onClick={() => navigate('/about')}>
+          <Button sx={{ color: '#fff' }} onClick={() => navigate(routes.about)}>
             About
           </Button>
-          <Button sx={{ color: '#fff' }} onClick={() => navigate('/contact')}>
+          <Button sx={{ color: '#fff' }} onClick={() => navigate(routes.contact)}>
             Contact Us
           </Button>
-          <Button sx={{ color: '#fff' }} onClick={() => navigate('/signup')}>
+          <Button sx={{ color: '#fff' }} onClick={() => navigate(routes.signup)}>
             Sign Up
           </Button>
         </NavMenu>
 
         <NavBtn>
-          <Fab color="primary" variant="extended" onClick={() => navigate('/signin')}>
+          <Fab color="primary" variant="extended" onClick={() => navigate(routes.signin)}>
             <SignInIcon sx={{ mr: 1 }} />
             Sign In
           </Fab>

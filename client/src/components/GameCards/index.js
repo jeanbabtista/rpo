@@ -1,7 +1,7 @@
 import React from 'react'
 
 // styles
-import { Box, useMediaQuery, useTheme } from '@mui/material'
+import { Grid } from '@mui/material'
 
 // components
 import Card from './Card'
@@ -10,17 +10,14 @@ import Card from './Card'
 import data from './data'
 
 const GameCards = () => {
-  const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('md'))
-
   return (
-    <Box mt={12}>
-      <Box display={matches ? 'block' : 'flex'} justifyContent="space-between" {...(matches && { width: '100%' })}>
-        {data.map((card, i) => (
-          <Card key={i} {...card} />
-        ))}
-      </Box>
-    </Box>
+    <Grid container direction="row" justifyContent="center" alignItems="center" spacing={1}>
+      {data.map((card, i) => (
+        <Grid item lg={4} md={6} xs={12} key={i} display="flex" justifyContent="center">
+          <Card {...card} />
+        </Grid>
+      ))}
+    </Grid>
   )
 }
 

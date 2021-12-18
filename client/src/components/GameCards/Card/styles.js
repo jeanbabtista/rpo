@@ -1,18 +1,10 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const CardWrapper = styled.div`
-  width: 100%;
-  perspective: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5rem;
-`
-
 export const CardContainer = styled(motion.div)`
   width: 285px;
   height: 500px;
+  margin: 2em 0 4em 0;
   display: flex;
   flex-direction: column;
   border-radius: 25px;
@@ -26,7 +18,6 @@ export const CardContainer = styled(motion.div)`
   background: ${(props) => `linear-gradient(${props.graddeg}deg, ${props.gradfrom} 0%, ${props.gradto} 74%);`}
   color: #fff;
   position: relative;
-  cursor: grab;
 `
 
 export const CircleWrapper = styled.div`
