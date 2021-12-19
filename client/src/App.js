@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Navbar from './components/Navbar'
 import GameCards from './components/GameCards'
 import TicTacToe from './components/TicTacToe'
+import Login from './components/Auth'
 
 // pages
 import Home from './pages/Home'
