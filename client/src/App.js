@@ -37,7 +37,7 @@ function App() {
               <Route index path={routes.home} element={<Home />} />
               <Route path={routes.games} element={<GameCards />} />
               <Route path={`${routes.games}/tictactoe`} element={<TicTacToe />} />
-              <Route path={`${routes.games}/snake`} element={<Snake/>} />
+              <Route path={`${routes.games}/snake`} element={<Snake />} />
               <Route path={`${routes.games}/warrior`} element={<h1>Warrior</h1>} />
               <Route path={routes.about} element={<About />} />
               <Route path={routes.contact} element={<Contact />} />
