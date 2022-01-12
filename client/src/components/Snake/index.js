@@ -4,10 +4,8 @@ import Food from './Food'
 
 import { GameArea } from './styles'
 
-const getRandomCoordinates = () => {
-  const random = (min, max) => Math.floor((Math.random() * (max - min + 1) + min) / 4) * 4
-  return [random(1, 98), random(1, 98)]
-}
+const random = (min, max) => Math.floor((Math.random() * (max - min + 1) + min) / 4) * 4
+const getRandomCoordinates = () => [random(1, 98), random(1, 98)]
 
 const initialState = {
   speed: 130,
@@ -22,34 +20,31 @@ const initialState = {
 const SnakeGame = () => {
   const [state, setState] = useState(initialState)
 
-  const handleKeyPress = useCallback(
-    (e) => {
-      e = e || window.event
+  const handleKeyPress = (e) => {
+    e = e || window.event
 
-      switch (e.keyCode) {
-        case 38:
-          if (!['GOR', 'DOL'].includes(state.direction)) setState({ ...state, direction: 'GOR' })
-          break
-        case 40:
-          if (!['GOR', 'DOL'].includes(state.direction)) setState({ ...state, direction: 'DOL' })
-          break
-        case 37:
-          if (!['LEVO', 'DESNO'].includes(state.direction)) setState({ ...state, direction: 'LEVO' })
-          break
-        case 39:
-          if (!['LEVO', 'DESNO'].includes(state.direction)) setState({ ...state, direction: 'DESNO' })
-          break
-        default:
-          break
-      }
-    },
-    [state],
-  )
+    switch (e.keyCode) {
+      case 38:
+        if (!['GOR', 'DOL'].includes(state.direction)) setState({ ...state, direction: 'GOR' })
+        break
+      case 40:
+        if (!['GOR', 'DOL'].includes(state.direction)) setState({ ...state, direction: 'DOL' })
+        break
+      case 37:
+        if (!['LEVO', 'DESNO'].includes(state.direction)) setState({ ...state, direction: 'LEVO' })
+        break
+      case 39:
+        if (!['LEVO', 'DESNO'].includes(state.direction)) setState({ ...state, direction: 'DESNO' })
+        break
+      default:
+        break
+    }
+  }
 
-  const moveSnake = useCallback(() => {
-    const dots = [...state.snakeDots]
-    let head = dots[dots.length - 1]
+  const moveSnake = () => {
+    const snakeDots = [...state.snakeDots]
 
+    let head = snakeDots[snakeDots.length - 1]
     switch (state.direction) {
       case 'DESNO':
         head = [head[0] + 4, head[1]]
@@ -67,16 +62,16 @@ const SnakeGame = () => {
         break
     }
 
-    dots.push(head)
-    dots.shift()
+    snakeDots.push(head)
+    snakeDots.shift()
 
-    setState({ ...state, snakeDots: dots })
-  }, [state, setState])
+    setState({ ...state, snakeDots })
+  }
 
   const onGameOver = useCallback(() => {
     alert('over')
     setState(initialState)
-  }, [setState])
+  }, [])
 
   const checkIfOutOfBorders = useCallback(() => {
     const head = state.snakeDots[state.snakeDots.length - 1]
@@ -105,13 +100,13 @@ const SnakeGame = () => {
       snakeDots.unshift([])
       setState({ ...state, snakeDots })
     }
-  }, [state, setState])
+  }, [state])
 
   useEffect(() => {
     const interval = setInterval(moveSnake, state.speed)
     document.onkeydown = handleKeyPress
     return () => clearInterval(interval)
-  }, [state, handleKeyPress, moveSnake])
+  }, [state, moveSnake])
 
   useEffect(() => {
     checkIfOutOfBorders()
