@@ -3,23 +3,26 @@ import cookieSession from 'cookie-session'
 import cors from 'cors'
 import passport from './auth/passport.js'
 import authRoute from './routes/auth.js'
+import db from './database/index.js'
 
 const app = express()
+db.connect()
 
 // middleware
-app.use(cookieSession({ name: 'session', keys: ['lama'], maxAge: 24 * 60 * 60 * 100 }))
-app.use(passport.initialize())
-app.use(passport.session())
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_URL,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  }),
+  })
 )
+app.use(
+  cookieSession({ name: 'session', keys: ['lama'], maxAge: 24 * 60 * 60 * 100 })
+)
+app.use(passport.initialize())
+app.use(passport.session())
 
 // config
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 const url = `http://localhost:${PORT}`
 
 // routes
