@@ -10,6 +10,8 @@ import Navbar from './components/Navbar'
 import GameCards from './components/GameCards'
 import TicTacToe from './components/TicTacToe'
 import Snake from './components/Snake2'
+import Breakout from './components/Breakout'
+
 
 // pages
 import Home from './pages/Home'
@@ -49,8 +51,8 @@ function App() {
               />
               <Route path={`${routes.games}/snake`} element={<Snake />} />
               <Route
-                path={`${routes.games}/warrior`}
-                element={<h1>Warrior</h1>}
+                path={`${routes.games}/breakout`}
+                element={<Breakout/>}
               />
               <Route path={routes.about} element={<About />} />
               <Route path={routes.contact} element={<Contact />} />

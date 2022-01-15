@@ -27,8 +27,8 @@ const data = [
   },
   {
     icon: WarriorIcon,
-    label: 'Warrior',
-    link: 'warrior',
+    label: 'Breakout',
+    link: 'breakout',
     bgGradDeg: '80',
     bgGradFrom: '#000',
     bgGradTo: '#923cb5',
