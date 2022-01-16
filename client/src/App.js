@@ -12,7 +12,6 @@ import TicTacToe from './components/TicTacToe'
 import Snake from './components/Snake2'
 import Breakout from './components/Breakout'
 
-
 // pages
 import Home from './pages/Home'
 import About from './pages/About'
