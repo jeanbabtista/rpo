@@ -1,7 +1,6 @@
 {
   "name": "rpo-game",
   "version": "1.0.0",
-  "type": "module",
   "description": "GameZ",
   "main": "index.js",
   "scripts": {
@@ -20,13 +19,12 @@
   },
   "homepage": "https://github.com/jeanbabtista/rpo#readme",
   "dependencies": {
-    "cookie-session": "^2.0.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
-    "mongoose": "^6.1.6",
-    "passport": "^0.5.2",
-    "passport-google-oauth20": "^2.0.0"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

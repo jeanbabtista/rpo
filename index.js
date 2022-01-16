@@ -1,25 +1,16 @@
-import express from 'express'
-import cookieSession from 'cookie-session'
-import cors from 'cors'
-import passport from './auth/passport.js'
-import authRoute from './routes/auth.js'
-import db from './database/index.js'
+const express = require('express')
+const cors = require('cors')
+const authRoute = require('./routes/auth.js')
+const db = require('./database')
+const models = require('./models')
 
 const app = express()
 db.connect()
 
 // middleware
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  })
-)
-app.use(
-  cookieSession({ name: 'session', keys: ['lama'], maxAge: 24 * 60 * 60 * 100 })
-)
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // config
 const PORT = process.env.PORT
@@ -27,6 +18,9 @@ const url = `http://localhost:${PORT}`
 
 // routes
 app.use('/auth', authRoute)
-app.get('/', (req, res) => res.json({ message: 'Hello World!' }))
+app.get('/', (req, res) => {
+  models
+  res.json({ message: 'Hello World!' })
+})
 
 app.listen(PORT, () => console.log(url))

@@ -12,7 +12,6 @@ const Avatar = () => {
 
   return (
     <>
-      <img src={user.photoUrl} alt={user.name} width="40px" height="40px" />
       <Box ml={2} mr={2}>
         {user.name}
       </Box>
